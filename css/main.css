@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Holtwood+One+SC);
+
 /*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
 
 /*
@@ -96,13 +98,36 @@ textarea {
    ========================================================================== */
 
 /* palette http://flatcolors.net/palette/943-seventies-fling */
+
+header {
+    padding: 20px;
+}
+.site-title {
+    font-family: 'Holtwood One SC', serif;
+    font-size: 6em;
+    text-transform: uppercase;
+    
+}
 body {
     background: #F2BB13
 }
 main {
-    max-width: 1000px;
+    max-width: 1140px;
     margin: 0 auto;
+    padding: 20px 30px;
     background: white;
+}
+code {
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: bold;
+    color: #178CA6;
+}
+
+
+.style-guide {
+    color: #999;
+    border-bottom: 2px solid #eee;
 }
 
 
