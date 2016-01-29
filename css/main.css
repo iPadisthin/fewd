@@ -127,10 +127,11 @@ header {
 header a {
     color: white;
     text-decoration: none;
-    padding-left: 30px;
+    font-size: 2em;
 }
 header a:before {
     content: "\21B0";
+    margin-right: 5px;
 }
 
 
