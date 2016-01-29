@@ -130,7 +130,7 @@ header a {
     padding-left: 30px;
 }
 header a:before {
-    content: "/21B0";
+    content: "\21B0";
 }
 
 
