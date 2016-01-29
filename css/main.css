@@ -95,8 +95,14 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-
-
+/* palette http://flatcolors.net/palette/943-seventies-fling */
+body {
+    background: #F2BB13
+}
+main {
+    max-width: 100px;
+    background: white;
+}
 
 
 
