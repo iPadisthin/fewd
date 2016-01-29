@@ -85,7 +85,13 @@
             <p>Let's find out.</p>
             <button class="button">Button with class</button>
             <p>It works, but looks like there are some additional default browser styles.</p>
+            <p>For chrome/safari (webkit browsers) looks like we can remove these with</p>
+<pre>
+    -webkit-appearance: none; 
+    border: 0;
+</pre>
             <button class="button" style="-webkit-appearance: none; border: 0;">Button with class</button>
+            <p>I wonder what other browsers do?</p>
             
         </main>
         <footer>
