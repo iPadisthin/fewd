@@ -163,6 +163,9 @@ pre {
 .col-60 {
     max-width: 59%;
 }
+.col-50 {
+    max-width: 49%;
+}
 
 
 .style-guide {
