@@ -1,0 +1,356 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <header>
+            <div class="wrapper">
+                <div class="site-title">FEWD</div>
+                <a href="/">Back</a>
+            </div>
+        </header>
+        <main>
+            <h1>How to make a horizontal navigation bar</h1>
+            <p>Navgation is a list of links so its a good idea to make your navigation a list. Wrap your list in a <code>&lt;nav&gt;</code> tag because thats what its for (defines main navagation block)</p>
+<pre>
+&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;About us&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Our clients&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contact us&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+</pre>
+            <p><b>So this will look like this:</b></p>
+            <nav>
+                <ul>
+                    <li><a href="#">About us</a>
+                    <li><a href="#">Portfolio</a>
+                    <li><a href="#">Our clients</a>
+                    <li><a href="#">Contact us</a>
+                </ul>
+            </nav>
+            
+            <p><b>Lets make it horizontal:</b></p>
+            <p>I'm going to add class="horizontal" to the nav tag to isolate this for styling from other lists.</p>
+<pre>
+&lt;nav class=&quot;horizontal&quot;&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;About us&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Our clients&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contact us&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+</pre>
+            <p>We have three options for making the list items sit side by side, each option is valid and you might wnat to use each depending on whatyou are trying to achieve style-wise</p>
+            <p><b>Option one - display: inline;</b></p>
+<pre>
+.horizontal li {
+    display: inline;
+}
+</pre>
+            <nav class="horizontal">
+                <!-- I'm using inline styles here so I can show this step by step
+                     don't use this code, copy the clean HTML and CSS code from the page -->
+                <ul>
+                    <li style="display: inline;"><a href="#">About us</a></li>
+                    <li style="display: inline;"><a href="#">Portfolio</a></li>
+                    <li style="display: inline;"><a href="#">Our clients</a></li>
+                    <li style="display: inline;"><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            <p>This is good option, but if you want to give your li's height or top and bottom padding you'll come unstuck since they are now inline you can't.</p>
+            <p><b>Option two - display: inline-block;</b></p>
+<pre>
+.horizontal li {
+    display: inline-block;
+}
+</pre>
+            <nav class="horizontal">
+                <!-- I'm using inline styles here so I can show this step by step
+                     don't use this code, copy the clean HTML and CSS code from the page -->
+                <ul>
+                    <li style="display: inline-block;"><a href="#">About us</a></li>
+                    <li style="display: inline-block;"><a href="#">Portfolio</a></li>
+                    <li style="display: inline-block;"><a href="#">Our clients</a></li>
+                    <li style="display: inline-block;"><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            <p>Now you can give your li's height, but inline and inline-block elements have little space between them, which if you don't want can be hard to get rid of.</p>
+            <p><b>Option three - float: left;</b></p>
+<pre>
+.horizontal li {
+    float: left;
+}
+</pre>
+            <nav class="horizontal">
+                <!-- I'm using inline styles here so I can show this step by step
+                     don't use this code, copy the clean HTML and CSS code from the page -->
+                <ul>
+                    <li style="float: left;"><a href="#">About us</a></li>
+                    <li style="float: left;"><a href="#">Portfolio</a></li>
+                    <li style="float: left;"><a href="#">Our clients</a></li>
+                    <li style="float: left;"><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            <p style="clear: both";>This option is fine too, but don't forget to clear floats!</p>
+            <p><b>Let's use this option.</b></p>
+            
+            <p>So you can see that making the <code>&lt;li&gt;</code> inline or inline block seems to rid us of the bullets, I don't think this is really whats happening, its probably just outside the visible box around the <code>&lt;li&gt;</code>.</p>
+            <p>Using float has made our <code>&lt;li&gt;</code>'s bullets float over the top of the previous <code>&lt;li&gt;</code>. This is because the bullets sit outside the content box.</p>
+            <p>Lets get rid of those pesky bullets, add some spacing between the links and remove the default <code>&lt;ul&gt;</code> left padding.</p>
+<pre>
+.horizontal ul {
+    padding: 0;
+}
+.horizontal li {
+    float: left;
+    list-style: none;
+    margin-right: 20px;
+}
+</pre>
+            
+            <nav class="horizontal">
+                <!-- I'm using inline styles here so I can show this step by step
+                     don't use this code, copy the clean HTML and CSS code from the page -->
+                <ul style="padding: 0;">
+                    <li style="float: left;list-style: none;margin-right: 20px;"><a href="#">About us</a></li>
+                    <li style="float: left;list-style: none;margin-right: 20px;"><a href="#">Portfolio</a></li>
+                    <li style="float: left;list-style: none;margin-right: 20px;"><a href="#">Our clients</a></li>
+                    <li style="float: left;list-style: none;margin-right: 20px;"><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            
+            <p>Because we are floating our <code>&lt;li&gt;</code>'s our <code>&lt;ul&gt;</code> has collapsed. See how this text is wrapping around it now and setting background color to the <code>&lt;ul&gt;</code> does nothing.</p>
+            <p>We could use a <a href="http://nicolasgallagher.com/micro-clearfix-hack/">clearfix</a> on our <code>&lt;ul&gt;</code>, or we could also float our <code>&lt;ul&gt;</code> left and give it a 100% width to fix this.</p>
+<pre>
+.horizontal ul {
+    float: left;
+    width: 100%;
+    padding: 0;
+}
+.horizontal li {
+    float: left;
+    list-style: none;
+    margin-right: 20px;
+}
+</pre>
+            <nav class="horizontal">
+                <!-- I'm using inline styles here so I can show this step by step
+                     don't use this code, copy the clean HTML and CSS code from the page -->
+                <ul style="float: left;width: 100%;padding: 0;">
+                    <li style="float: left;list-style: none;margin-right: 20px;"><a href="#">About us</a></li>
+                    <li style="float: left;list-style: none;margin-right: 20px;"><a href="#">Portfolio</a></li>
+                    <li style="float: left;list-style: none;margin-right: 20px;"><a href="#">Our clients</a></li>
+                    <li style="float: left;list-style: none;margin-right: 20px;"><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            
+            <p>Now we can give our <code>&lt;ul&gt;</code> a background color if we want.</p>
+<pre>
+.horizontal ul {
+    float: left;
+    width: 100%;
+    padding: 0;
+    background: #178CA6;
+}
+.horizontal li {
+    float: left;
+    list-style: none;
+    margin-right: 20px;
+}
+</pre>
+            <nav class="horizontal">
+                <!-- I'm using inline styles here so I can show this step by step
+                     don't use this code, copy the clean HTML and CSS code from the page -->
+                <ul style="float: left;width: 100%;padding: 0;background: #178CA6;text-align: right;">
+                    <li style="float: left;list-style: none;margin-right: 20px;"><a href="#">About us</a></li>
+                    <li style="float: left;list-style: none;margin-right: 20px;"><a href="#">Portfolio</a></li>
+                    <li style="float: left;list-style: none;margin-right: 20px;"><a href="#">Our clients</a></li>
+                    <li style="float: left;list-style: none;margin-right: 20px;"><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            
+            <p>Unfortunately because we are using float: left on our <code>&lt;li&gt;</code>'s its not so simple to align our menu center or right!</p>
+            <p>Let's try this with the inline option instead.</p>
+<pre>
+.horizontal ul {
+    background: #178CA6;
+    text-align: right;
+}
+.horizontal li {
+    display: inline;
+    list-style: none;
+    margin-right: 20px;
+}
+</pre>
+            <nav class="horizontal">
+                <!-- I'm using inline styles here so I can show this step by step
+                     don't use this code, copy the clean HTML and CSS code from the page -->
+                <ul style="background: #178CA6;text-align: right;">
+                    <li style="display: inline;list-style: none;margin-right: 20px;"><a href="#">About us</a></li>
+                    <li style="display: inline;list-style: none;margin-right: 20px;"><a href="#">Portfolio</a></li>
+                    <li style="display: inline;list-style: none;margin-right: 20px;"><a href="#">Our clients</a></li>
+                    <li style="display: inline;list-style: none;margin-right: 20px;"><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            <p>Let's make it look a little nicer and give our links a hover state! Hover on them to see it in action.</p>
+            <p>I need to switch to the inline-block option because I'm going to want to give the <code>&lt;li&gt;</code>'s some height via padding on the <code>&lt;a&gt;</code> tags.</p>
+<pre>
+.horizontal ul {
+    background: #178CA6;
+    text-align: right;
+    padding: 0;
+}
+.horizontal li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 0; 
+}
+.horizontal a {
+    display: block; /* fill li space */
+    cursor: pointer; /* need this to restore pointer which gets lost when display: block; on a tag */
+    padding: 1em 0.8em;
+    color: #fff;
+    text-decoration: none;
+}
+.horizontal a:hover {
+    background: rgba(0,0,0,0.2);
+}
+</pre>
+            <nav class="horizontal-1">
+                <!-- I'm using inline styles here so I can show this step by step
+                     don't use this code, copy the clean HTML and CSS code from the page -->
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Our clients</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            
+            <p>Other stuff you might want to do:</p>
+            
+            <p><b>Add an evenly spaced line between them.</b></p>
+            <p>If your padding left and right of the <code>&lt;a&gt;</code> tag is even then you can add a border right to either your <code>&lt;a&gt;</code> tag or <code>&lt;a&gt;</code> then use a :last-child pseudo selector to remove the last border.</p>
+<pre>
+.horizontal ul {
+    background: #178CA6;
+    text-align: right;
+    padding: 0;
+}
+.horizontal li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 0; 
+}
+.horizontal a {
+    display: block; /* fill li space */
+    cursor: pointer; /* need this to restore pointer which gets lost when display: block; on a tag */
+    padding: 1em 0.8em;
+    color: #fff;
+    text-decoration: none;
+    border-right: 1px solid #0F5B6C;
+}
+.horizontal a:hover {
+    background: rgba(0,0,0,0.2);
+}
+.horizontal a:last-child {
+    border-right: 0;
+}
+</pre>          
+            <nav class="horizontal-2">
+                <!-- I'm using inline styles here so I can show this step by step
+                     don't use this code, copy the clean HTML and CSS code from the page -->
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Our clients</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            
+            <p>Can you see the problematic inline/inline-block spacing between the li's, its really obvious when you hover!</p>
+            <p>One way of getting rid of this is in chrome/safari and firefox is to use something from yahoo's yui grid: set letter-spacing: -0.31em; on the <code>&lt;ul&gt;</code> and letter-spacing: normal; on the <code>&lt;li&gt;</code>. I wonder if it works in ie and elswhere.</p>
+
+<pre>
+.horizontal ul {
+    background: #178CA6;
+    text-align: right;
+    padding: 0;
+    letter-spacing: -0.31em;
+}
+.horizontal li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 0;
+    letter-spacing: normal;
+}
+.horizontal a {
+    display: block; /* fill li space */
+    cursor: pointer; /* need this to restore pointer which gets lost when display: block; on a tag */
+    padding: 1em 0.8em;
+    color: #fff;
+    text-decoration: none;
+    border-right: 1px solid #0F5B6C;
+}
+.horizontal a:hover {
+    background: rgba(0,0,0,0.2);
+}
+.horizontal a:last-child {
+    border-right: 0;
+}
+</pre>          
+            <nav class="horizontal-3">
+                <!-- I'm using inline styles here so I can show this step by step
+                     don't use this code, copy the clean HTML and CSS code from the page -->
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Our clients</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            
+            <p><b>From here you can style this all sorts of ways! Have fun.</b></p>
+            
+        </main>
+        <footer>
+        
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script src="/js/plugins.js"></script>
+        <script src="/js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+        -->
+    </body>
+</html>

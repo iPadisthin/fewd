@@ -124,12 +124,19 @@ header {
     text-transform: uppercase;
     
 }
+.site-title a {
+    text-decoration: none;
+    color: black;
+}
+.site-title a:hover {
+    color: #D99F7E;
+}
 body {
     background: #F2BB13
 }
 
 main {
-    padding: 20px 30px;
+    padding: 20px 30px 100px 30px;
     background: white;
 }
 code {
@@ -139,7 +146,7 @@ code {
     color: #178CA6;
 }
 pre {
-    margin: 0;
+    margin-top: 0;
 }
 
 [class^="col"] {
@@ -168,6 +175,8 @@ h2.style-guide {
 
 .home-block {
     position: relative;
+    display: inline-block;
+    vertical-align: top;
     width: 22.5%;
     margin-right: 10px 2.5%;
     border: 1px solid #D9D7CC;
@@ -197,15 +206,108 @@ h2.style-guide {
 }
 
 
+.horizontal-1 ul {
+    background: #178CA6;
+    text-align: right;
+    padding: 0;
+}
+.horizontal-1 li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 0;
+}
+.horizontal-1 a {
+    display: block; /* fill li space */
+    cursor: pointer; /* need this to restore pointer which gets lost when display: block; on a tag */
+    padding: 1em 0.8em;
+    color: #fff;
+    text-decoration: none;
+}
+.horizontal-1 a:hover {
+    background: rgba(0,0,0,0.2);
+}
 
+.horizontal-2 ul {
+    background: #178CA6;
+    text-align: right;
+    padding: 0;
+}
+.horizontal-2 li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 0;
+}
+.horizontal-2 a {
+    display: block; /* fill li space */
+    cursor: pointer; /* need this to restore pointer which gets lost when display: block; on a tag */
+    padding: 1em 0.8em;
+    color: #fff;
+    text-decoration: none;
+    border-right: 1px solid #0C4C5A;
+}
+.horizontal-2 a:hover {
+    background: rgba(0,0,0,0.2);
+}
+.horizontal-2 li:last-child a {
+    border-right: 0;
+}
 
+.horizontal-3 ul {
+    background: #178CA6;
+    text-align: right;
+    padding: 0;
+    
+    letter-spacing: -0.31em;
+}
+.horizontal-3 li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 0;
+    
+    letter-spacing: normal;
+}
+.horizontal-3 a {
+    display: block; /* fill li space */
+    cursor: pointer; /* need this to restore pointer which gets lost when display: block; on a tag */
+    padding: 1em 0.8em;
+    color: #fff;
+    text-decoration: none;
+    border-right: 1px solid #0C4C5A;
+}
+.horizontal-3 a:hover {
+    background: rgba(0,0,0,0.2);
+}
+.horizontal-3 li:last-child a {
+    border-right: 0;
+}
 
+.button {
+    display: inline-block;
+    padding: 15px 20px;
+    margin: 5px;
+    font-size: 1.5em;
+    background: #178CA6;
+    color: white;
+    text-decoration: none;
+    text-shadow: 0 2px 0 #0F5B6C;
+    border-radius: 6px;
+    box-shadow: 0 3px 0 #0F5B6C;
+    cursor:pointer; /* we need this because we lose the pointer when we make an a tag display block */
+}
+.button:hover {
+    background: #147990;
+}
 
-
-
-
-
-
+.special-offer.button {
+    background: #F24130;
+    text-shadow: 0 2px 0 #99160A;
+    box-shadow: 0 3px 0 #99160A;
+    
+    text-transform: uppercase;
+}
+.special-offer.button:hover {
+    background: #C01B0C;
+}
 
 /* ==========================================================================
    Helper classes
