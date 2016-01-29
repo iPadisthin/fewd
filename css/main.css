@@ -124,13 +124,16 @@ header {
     text-transform: uppercase;
     
 }
-.site-title a {
+header a {
+    color: white;
     text-decoration: none;
-    color: black;
+    padding-left: 30px;
 }
-.site-title a:hover {
-    color: #D99F7E;
+header a:before {
+    content: "/21B0";
 }
+
+
 body {
     background: #F2BB13
 }
