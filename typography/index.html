@@ -1,0 +1,258 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <header>
+            <div class="wrapper">
+                <div class="site-title">FEWD</div>
+            </div>
+        </header>
+        <main>
+            <h1>Typography</h1>
+            <p>Here's the main type elements:</p>
+            
+            <h2 class="style-guide">Block level</h2>
+            
+            <h3 class="style-guide">Headings and paragraphs</h3>
+            
+            <div class="col-40">
+                <h1>Heading 1 <code>&lt;h1&gt;&lt;/h1&gt;</code></h1>
+                <h2>Heading 2 <code>&lt;h1&gt;&lt;/h2&gt;</code></h2>
+                <h3>Heading 3 <code>&lt;h1&gt;&lt;/h3&gt;</code></h3>
+                <h4>Heading 4 <code>&lt;h1&gt;&lt;/h4&gt;</code></h4>
+                <h5>Heading 5 <code>&lt;h1&gt;&lt;/h5&gt;</code></h5>
+                <h6>Heading 6 <code>&lt;h1&gt;&lt;/h6&gt;</code></h6>
+
+                <p>Paragraphs are everwhere <code>&lt;p&gt;&lt;/p&gt;</code></p>
+            </div>
+            <div class="col-60">
+                <p>Typically you might want to set the following CSS styles for headings and paragraphs:</p>
+                <p><b>font-family:</b> (you would set the default family on the body tag though)<br>
+                <b>font-size:</b> (best to use em units - remember 1em equals 1 x basefont size which by default is 16px)<br>
+                <b>line-height:</b> (this is how you can increase your leading, but its not leading its the height of the line!)<br>
+                <b>margin:</b> (usually just top and bottom)<br>
+                <b>color:</b></p>
+                <p>These examples to the left are just default styling (after normailize.css applied)</p>
+                <p>P.S. I don't recommend setting font-size: on parent containers eg <code>&lt;div&gt;</code>, <code>&lt;body&gt;</code> unless you really want to step up or step down all font sizes for that particular area. Because em's multiply, so if I set font-size: 2em for <code>&lt;body&gt;</code> and font-size: 1.2em for <code>&lt;p&gt;</code> then my paragraphs will be 16p * 2 * 1.2 = 38.4px.</p>
+                <p>I'm sure you can see where this might be useful, eg to reduce base font-size for <code>&lt;footer&gt;</code>, but also potentiall cause frustration.</p>
+            </div>
+            
+            <h3 class="style-guide">Lists</h3>
+
+
+            <h4 class="style-guide">Ordered list</h4>
+            <div class="col-40">
+                <ol>
+                  <li>list item 1</li>
+                  <li>list item 2
+                    <ol>
+                      <li>list item 2.1
+                        <ul>
+                          <li>Un-ordered list</li>
+                          <li>Can go in here also</li>
+                        </ul>
+                      </li>
+                    </ol>
+                  </li>
+                  <li>list item 3</li>
+                  <li>list item 4</li>
+                </ol>
+            </div>
+            
+            <div class="col 60">
+<pre>
+  <code>
+&lt;ol&gt;
+  &lt;li&gt;list item 1&lt;/li&gt;
+  &lt;li&gt;list item 2
+    &lt;ol&gt;
+        &lt;li&gt;list item 2.1
+            &lt;ul&gt;
+                &lt;li&gt;Un-ordered list&lt;/li&gt;
+                &lt;li&gt;Can be nested in here&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+  </code>
+</pre> 
+            </div>
+
+            <div> 
+            <h4 class="style-guide">Un-ordered list</h4>
+            <div class="col-40">
+                <ul>
+                  <li>list item 1</li>
+                  <li>list item 2
+                    <ul>
+                      <li>list item 2.
+                        <ol>
+                          <li>Ordered list</li>
+                          <li>Can be nested in here</li>
+                        </ol>
+                      </li>
+                  </li>
+                  <li>list item 3</li>
+                  <li>list item 4</li>
+                </ul>
+            </div>
+            <div class="col 60">
+<pre>
+  <code>
+&lt;ul&gt;
+  &lt;li&gt;list item 1&lt;/li&gt;
+  &lt;li&gt;list item 2
+    &lt;ul&gt;
+        &lt;li&gt;list item 2.1
+            &lt;ol&gt;
+                &lt;li&gt;Un-ordered list&lt;/li&gt;
+                &lt;li&gt;Can be nested in here&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+  </code>
+</pre> 
+            </div>
+
+
+            <h4 class="style-guide">Definition list</h4>
+            <div class="col-40">
+                <dl>
+                  <dt>Description name</dt>
+                  <dd>Description value</dd>
+                  <dt>Description name</dt>
+                  <dd>Description value</dd>
+                  <dt>Description name</dt>
+                  <dd>Description value</dd>
+                </dl>
+            </div>
+            <div class="col 60">
+<pre>
+  <code>
+&lt;dl&gt;
+  &lt;dt&gt;Description name 1&lt;/dt&gt;
+  &lt;dd&gt;Description value 1&lt;/dd&gt;
+  &lt;dt&gt;Description name 2&lt;/dt&gt;
+  &lt;dd&gt;Description value 2&lt;/dd&gt;
+  &lt;dt&gt;Description name 3&lt;/dt&gt;
+  &lt;dd&gt;Description value 4&lt;/dd&gt;
+&lt;/dl&gt;
+  </code>
+</pre> 
+            </div>
+
+
+
+<h3 class="style-guide">Block quote (pull quote)</h3>
+
+<blockquote>
+    <p>HTMl, CSS and Javascript are awesome man, I can make some dope websites now</p>
+</blockquote>
+
+<pre>
+  <code>
+&lt;blockquote&gt;
+  &lt;p&gt;Quote goes here&lt;/p&gt;
+&lt;/blockquote&gt;
+  </code>
+</pre>
+
+<p class="style-guide">With citation</p>
+
+<blockquote>
+    <p>HTMl, CSS and Javascript are awesome man, I can make some dope websites now</p>
+    <footer><cite>Joe Johnson, FEWD graduate and disco freak</cite></footer>
+</blockquote>
+
+<pre>
+  <code>
+&lt;blockquote&gt;
+  &lt;p&gt;Quote goes here&lt;/p&gt;
+  &lt;footer&gt;&lt;cite&gt;Name, Optionally title or description of who they are&lt;/cite&gt;&lt;/footer&gt;
+&lt;/blockquote&gt;
+  </code>
+</pre>
+
+<h2 class="style-guide">Inline tags that can be used within these block level tags:</h2>
+
+<h3 class="style-guide">Links</h3>
+<p>Anchor tag (hyperlink): <a href="https://google.com">Google</a> <code>&lt;a  href=&quot;https://google.com&quot;&gt;Google&lt;/a&gt;</code></p>
+
+<h3 class="style-guide">Other</h3>
+<div class="col-1of2">
+    <p>The <abbr>abbr element</abbr> <code>&lt;abbr&gt;&lt;/abbr&gt;</code></p>
+    <p>The <abbr title="Abbreviation">abbr</abbr> element with title <code>&lt;abbr  title=&quot;Abbreviation&quot;&gt;&lt;/abbr&gt;</code></p>
+<p>The <b>b element</b> <code>&lt;b&gt;&lt;/b&gt;</code></p>
+<p>The <cite>cite element</cite> <code>&lt;cite&gt;&lt;/cite&gt;</code></p>
+<p>The <code>code element</code> <code>&lt;code&gt;&lt;/code&gt;</code></p>
+<p>The <em>em element</em> <code>&lt;em&gt;&lt;/em&gt;</code></p>
+<p>The <del>del element</del> <code>&lt;del&gt;&lt;/del&gt;</code></p>
+    <p>The <dfn>dfn element</dfn> <code>&lt;dfn&gt;&lt;/dfn&gt;</code></p>
+<p><dfn title="Title text">dfn element with title</dfn> <code>&lt;dfn  title=&quot;Title text&quot;&gt;&lt;/dfn&gt;</code></p>
+<p>The <i>i element</i> <code>&lt;i&gt;&lt;/i&gt;</code></p>
+<p>The <ins>ins element</ins> example</p>
+<p>The <kbd>kbd element</kbd> example</p>
+<p>The <mark>mark element</mark> example</p>
+</div>
+<div class="col-2of2">
+<p>The <q>q element</q> example</p>
+<p>The <q>q element <q>inside</q> a q element</q> example</p>
+<p>The <s>s element</s> example</p>
+<p>The <samp>samp element</samp> example</p>
+<p>The <small>small element</small> example</p>
+<p>The <span>span element</span> example</p>
+<p>The <strong>strong element</strong> example</p>
+<p>The <sub>sub element</sub> example</p>
+<p>The <sup>sup element</sup> example</p>
+<p>The <u>u element</u> example</p>
+<p>The <var>var element</var> example</p>
+</div>
+
+
+
+<h2 class="style-guide">Horizontal rule</h2>
+<code>&lt;hr&gt;</code>
+<hr/>
+            
+        </main>
+        <footer>
+        
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script src="/js/plugins.js"></script>
+        <script src="/js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+        -->
+    </body>
+</html>

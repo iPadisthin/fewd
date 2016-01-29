@@ -91,6 +91,8 @@ textarea {
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
+    
+    text-align: center;
 }
 
 /* ==========================================================================
@@ -99,6 +101,20 @@ textarea {
 
 /* palette http://flatcolors.net/palette/943-seventies-fling */
 
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+.wrapper,
+main {
+    max-width: 1140px;
+    margin: 0 auto;
+}
 header {
     padding: 20px;
 }
@@ -111,9 +127,8 @@ header {
 body {
     background: #F2BB13
 }
+
 main {
-    max-width: 1140px;
-    margin: 0 auto;
     padding: 20px 30px;
     background: white;
 }
@@ -123,14 +138,63 @@ code {
     font-weight: bold;
     color: #178CA6;
 }
+pre {
+    margin: 0;
+}
+
+[class^="col"] {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 20px;
+}
+.col-33 {
+    max-width: 30%;
+}
+.col-40 {
+    max-width: 39%;
+}
+.col-60 {
+    max-width: 59%;
+}
 
 
 .style-guide {
     color: #999;
+}
+h2.style-guide {
+    margin-top: 2em;
     border-bottom: 2px solid #eee;
 }
 
-
+.home-block {
+    position: relative;
+    width: 22.5%;
+    margin-right: 10px 2.5%;
+    border: 1px solid #D9D7CC;
+}
+.home-block h2 {
+    background: #178CA6;
+    color: white;
+    margin: 0;
+    padding: 5px;
+    font-size: 1.2em;
+    text-align: center;
+}
+.home-block p {
+    padding: 0 5px;
+}
+.home-block a {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+}
+.home-block a:hover {
+    background: rgba(0,0,0,0.3);
+}
 
 
 
