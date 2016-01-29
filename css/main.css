@@ -100,7 +100,8 @@ body {
     background: #F2BB13
 }
 main {
-    max-width: 100px;
+    max-width: 1000px;
+    margin: 0 auto;
     background: white;
 }
 
