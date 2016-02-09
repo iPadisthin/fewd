@@ -182,11 +182,14 @@ h2.style-guide {
 
 .home-block {
     position: relative;
-    display: inline-block;
-    vertical-align: top;
+    float: left;
     width: 22.5%;
-    margin-right: 10px 2.5%;
+    margin: 10px 2.5% 10px 0;
     border: 1px solid #D9D7CC;
+    min-height: 200px;
+}
+.home-block:nth-child(4n+4){
+    margin-right: 0;
 }
 .home-block h2 {
     background: #178CA6;
