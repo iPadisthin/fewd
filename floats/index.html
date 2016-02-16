@@ -191,8 +191,76 @@ img.image2 {
                 <p>Morbi nisi metus, convallis ac fermentum et, maximus sit amet est. Cras iaculis, orci in porttitor tincidunt, est ante vehicula diam, quis mollis turpis neque vel felis. In sit amet enim mi. Aenean condimentum lorem et finibus rutrum. Sed ac ligula ullamcorper libero dapibus pellentesque at non purus. Proin ullamcorper ipsum sit amet auctor luctus.</p>
             </div>
             
-            <p>That white space between the pink and green box is due to the margin on the &lt;p&gt; tag popping outside the div.</p>
+            <p>Note: that white space between the pink and green box is due to the margin on the &lt;p&gt; tag popping outside the div.</p>
             
+            <p>But, if we wanted our next div to not wrap then we need to use clear to clear the floats</p>
+<pre>
+<code>
+div2 {
+    clear: both; /* clear both to be certain */
+}
+</code>
+</pre>
+            <p>The result:</p>
+            <div style="max-width: 800px; margin: 0 auto; background: pink;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis justo at ex semper, maximus imperdiet metus feugiat. Suspendisse vel eros et orci interdum volutpat. Ut cursus enim a ultrices interdum. Vestibulum at dignissim orci. Fusce ac risus sit amet diam malesuada blandit.</p>
+                <img src="http://placehold.it/350x150" style="float: right; margin: 0 0 20px 20px;">
+                <img src="http://placehold.it/150x150" style="clear: right; float: right; margin: 0 0 20px 20px;">
+                <p>Morbi nisi metus, convallis ac fermentum et, maximus sit amet est. Cras iaculis, orci in porttitor tincidunt, est ante vehicula diam, quis mollis turpis neque vel felis. In sit amet enim mi. Aenean condimentum lorem et finibus rutrum. Sed ac ligula ullamcorper libero dapibus pellentesque at non purus. Proin ullamcorper ipsum sit amet auctor luctus.</p>
+                <p>Duis gravida nibh sit amet tellus pellentesque, ut maximus dolor sodales. Nunc id malesuada magna. Vestibulum bibendum ornare lectus non vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            </div>
+            <div style="clear: both; max-width: 800px; margin: 0 auto; background: aquamarine;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis justo at ex semper, maximus imperdiet metus feugiat. Suspendisse vel eros et orci interdum volutpat. Ut cursus enim a ultrices interdum. Vestibulum at dignissim orci. Fusce ac risus sit amet diam malesuada blandit.</p>
+                <p>Morbi nisi metus, convallis ac fermentum et, maximus sit amet est. Cras iaculis, orci in porttitor tincidunt, est ante vehicula diam, quis mollis turpis neque vel felis. In sit amet enim mi. Aenean condimentum lorem et finibus rutrum. Sed ac ligula ullamcorper libero dapibus pellentesque at non purus. Proin ullamcorper ipsum sit amet auctor luctus.</p>
+            </div>
+            
+            <p>And if want our first div, which has floating children to not collapse, but to fully contain all its children we need to use a clearfix method.</p>
+            
+            <p>Let's use the micro clearfix which comes with HTML5 boilerplate, its a class called clearfix</p>
+            
+            <p>The HTML:</p>
+
+<pre>
+    <code>
+&lt;div class=&quot;div1 clearfix&quot;&gt;    
+    &lt;p&gt;Lorem ipsum...&lt;/p&gt;
+    &lt;img class=&quot;image1&quot; src=&quot;http://placehold.it/350x150&quot;&gt;
+    &lt;img class=&quot;image2&quot; src=&quot;http://placehold.it/150x150&quot;&gt;
+    &lt;p&gt;Morbi nisi...&lt;/p&gt;
+    &lt;p&gt;Duis gravida...&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;div2&quot;&gt;    
+    &lt;p&gt;Lorem ipsum...&lt;/p&gt;
+    &lt;p&gt;Morbi nisi...&lt;/p&gt;
+&lt;/div&gt;
+    </code>
+</pre>
+            <p>The CSS:</p>
+<pre>
+<code>
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+</code>
+</pre>            
+            <p>The result:</p>
+            <div class="clearfix" style="max-width: 800px; margin: 0 auto; background: pink;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis justo at ex semper, maximus imperdiet metus feugiat. Suspendisse vel eros et orci interdum volutpat. Ut cursus enim a ultrices interdum. Vestibulum at dignissim orci. Fusce ac risus sit amet diam malesuada blandit.</p>
+                <img src="http://placehold.it/350x150" style="float: right; margin: 0 0 20px 20px;">
+                <img src="http://placehold.it/150x150" style="clear: right; float: right; margin: 0 0 20px 20px;">
+                <p>Morbi nisi metus, convallis ac fermentum et, maximus sit amet est. Cras iaculis, orci in porttitor tincidunt, est ante vehicula diam, quis mollis turpis neque vel felis. In sit amet enim mi. Aenean condimentum lorem et finibus rutrum. Sed ac ligula ullamcorper libero dapibus pellentesque at non purus. Proin ullamcorper ipsum sit amet auctor luctus.</p>
+                <p>Duis gravida nibh sit amet tellus pellentesque, ut maximus dolor sodales. Nunc id malesuada magna. Vestibulum bibendum ornare lectus non vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            </div>
+            <div style="clear: both; max-width: 800px; margin: 0 auto; background: aquamarine;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis justo at ex semper, maximus imperdiet metus feugiat. Suspendisse vel eros et orci interdum volutpat. Ut cursus enim a ultrices interdum. Vestibulum at dignissim orci. Fusce ac risus sit amet diam malesuada blandit.</p>
+                <p>Morbi nisi metus, convallis ac fermentum et, maximus sit amet est. Cras iaculis, orci in porttitor tincidunt, est ante vehicula diam, quis mollis turpis neque vel felis. In sit amet enim mi. Aenean condimentum lorem et finibus rutrum. Sed ac ligula ullamcorper libero dapibus pellentesque at non purus. Proin ullamcorper ipsum sit amet auctor luctus.</p>
+            </div>
             <p>I'll do a floats for layout page next!</p>
         </main>
         <footer>
