@@ -94,12 +94,30 @@ aside {
             </div>
             
             <hr style="clear:both;">
+            <h2>Clearfix</h2>
             <p>We can see that our pink background has dissapeared.</p>
             
             <p>This is because of the float parent collapse issue described in the <a href="/fewd/floats/">floats page</a></p>
             
             <p>So we need to apply our clear fix to <code>&lt;div class=&quot;layout&quot;&gt;</code></p>
             <p>If we are using the HTML5 boilerplate we can do this with the clearfix class like so <code>&lt;div class=&quot;layout clearfix&quot;&gt;</code></p>
+            
+            <h3>Full HTML</h3>
+<pre>
+    <code>
+&lt;div class=&quot;layout clearfix&quot;&gt;
+    &lt;article&gt;
+        &lt;h1&gt;Our pages main content&lt;/h1&gt;
+        &lt;p&gt;This is where we are putting our pages main content&lt;/p&gt;
+    &lt;/article&gt;
+    &lt;aside&gt;
+        &lt;h2&gt;Secondary content&lt;/h2&gt;
+        &lt;p&gt;This is where we are putting supplementary content.&lt;/p&gt;
+    &lt;/aside&gt;
+&lt;/div&gt;
+    </code>
+</pre>            
+            
             <p>This results in:</p>
             
             <p><i>Note I have given article a blue background, aside a green background and .layout padding top/bottom so you can see them all.</i></p>
@@ -119,6 +137,7 @@ aside {
             
             <p>So I could clear the float!</p>
             
+            <h2>Gutters</h2>
             <p>Now we just need to add some padding or margin to our <code>&lt;article&gt;</code> and <code>&lt;aside&gt;</code> to separate them.</p>
             
             <p>Remember if you are using <a href="http://www.paulirish.com/2012/box-sizing-border-box-ftw/">Border-box</a> sizing than padding and border will stay within your declared width, but margin is outside width.</p>
