@@ -1,0 +1,239 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="/fewd/css/normalize.css">
+        <link rel="stylesheet" href="/fewd/css/main.css">
+        <script src="/fewd/js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <header>
+            <div class="wrapper">
+                <div class="site-title">FEWD</div>
+                <a href="/fewd/index.html">Back</a>
+            </div>
+        </header>
+        <main>
+            <h1>Inline-block for layout</h1>
+            <p>In-line blocks are great but traditionally haven't been used for layout because of the hard to control white space between them.</p>
+            
+            <p>Have a look at these four in-line blocks:</p>
+            <p><i>Note: I've given them background colours so you can see them.</i></p>
+            
+                    
+            <div class="one-quarter" style="display: inline-block; width: 25%; background: lightblue;">
+                <h2>I'm 25% wide.</h2>
+                <p>This is</p>
+                <p>Some content</p>
+                <p>For block one</p>
+            </div>
+            <div class="one-quarter" style="display: inline-block; width: 25%; background: lightgreen;">
+                <h2>I'm 25% wide.</h2>
+                <p>This is</p>
+                <p>Some content</p>
+                <p>For block two</p>
+                <p>Extra line</p>
+            </div>
+            <div class="one-quarter" style="display: inline-block; width: 25%; background: cornflowerblue;">
+                <h2>I'm 25% wide.</h2>
+                <p>This is</p>
+                <p>Some content three</p>
+            </div>
+            <div class="one-quarter" style="display: inline-block; width: 25%; background: aquamarine;">
+                <h2>I'm 25% wide.</h2>
+                <p>This is content</p>
+            </div>
+
+            <h2>The HTML</h2>
+            <pre>
+                <code>
+&lt;div class=&quot;one-quarter&quot;&gt;
+    &lt;h2&gt;I'm 25% wide.&lt;/h2&gt;
+    &lt;p&gt;This is&lt;/p&gt;
+    &lt;p&gt;Some content&lt;/p&gt;
+    &lt;p&gt;For block one&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;one-quarter&quot;&gt;
+    &lt;h2&gt;I'm 25% wide.&lt;/h2&gt;
+    &lt;p&gt;This is&lt;/p&gt;
+    &lt;p&gt;Some content&lt;/p&gt;
+    &lt;p&gt;For block two&lt;/p&gt;
+    &lt;p&gt;Extra line&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;one-quarter&quot;&gt;
+    &lt;h2&gt;I'm 25% wide.&lt;/h2&gt;
+    &lt;p&gt;This is&lt;/p&gt;
+    &lt;p&gt;Some content three&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;one-quarter&quot;&gt;
+    &lt;h2&gt;I'm 25% wide.&lt;/h2&gt;
+    &lt;p&gt;This is content&lt;/p&gt;
+&lt;/div&gt;
+                </code>
+            </pre>
+            
+            <h2>The CSS</h2>
+            <pre>
+                <code>
+.one-quarter {
+    display: inline-block;
+    width: 25%;
+}
+                </code>
+            </pre>
+            
+            <p>So you can see that even though each of these blocks are 25% wide they don't all fit on the one line.</p>
+            <p>This is because of that white space that appears between each inline-block that each browser applys but we can't be sure how wide it is in each browser.</p>
+            <p>The other thing you might notice is that inline-blocks align at there bottom edge by default.</p>
+            <h2>Let's make them align at their top edge.</h2>
+            <pre>
+                <code>
+.one-quarter {
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
+}
+                </code>
+            </pre>
+
+            <div class="one-quarter" style="display: inline-block; width: 25%; vertical-align: top; background: lightblue;">
+                <h2>I'm 25% wide.</h2>
+                <p>This is</p>
+                <p>Some content</p>
+                <p>For block one</p>
+            </div>
+            <div class="one-quarter" style="display: inline-block; width: 25%; vertical-align: top; background: lightgreen;">
+                <h2>I'm 25% wide.</h2>
+                <p>This is</p>
+                <p>Some content</p>
+                <p>For block two</p>
+                <p>Extra line</p>
+            </div>
+            <div class="one-quarter" style="display: inline-block; width: 25%; vertical-align: top; background: cornflowerblue;">
+                <h2>I'm 25% wide.</h2>
+                <p>This is</p>
+                <p>Some content three</p>
+            </div>
+            <div class="one-quarter" style="display: inline-block; width: 25%; vertical-align: top; background: aquamarine;">
+                <h2>I'm 25% wide.</h2>
+                <p>This is content</p>
+            </div>
+            
+            <h2>How do we get rid of that white space!</h2>
+            <p>Here's a technique I like to use because its the most robust I've seen - <a href="https://github.com/patrickkunka/zero-width">https://github.com/patrickkunka/zero-width</a></p>
+            
+            <p>You put your inline-blocks inside a container, just like we did for our float layout:</p>
+            <pre>
+                <code>
+&lt;div class=&quot;layout&quot;&gt;
+    &lt;div class=&quot;one-quarter&quot;&gt;
+        &lt;h2&gt;I'm 25% wide.&lt;/h2&gt;
+        &lt;p&gt;This is&lt;/p&gt;
+        &lt;p&gt;Some content&lt;/p&gt;
+        &lt;p&gt;For block one&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one-quarter&quot;&gt;
+        &lt;h2&gt;I'm 25% wide.&lt;/h2&gt;
+        &lt;p&gt;This is&lt;/p&gt;
+        &lt;p&gt;Some content&lt;/p&gt;
+        &lt;p&gt;For block two&lt;/p&gt;
+        &lt;p&gt;Extra line&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one-quarter&quot;&gt;
+        &lt;h2&gt;I'm 25% wide.&lt;/h2&gt;
+        &lt;p&gt;This is&lt;/p&gt;
+        &lt;p&gt;Some content three&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;one-quarter&quot;&gt;
+        &lt;h2&gt;I'm 25% wide.&lt;/h2&gt;
+        &lt;p&gt;This is content&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code>
+            </pre>
+            
+            <p>You set the container's (<code>&lt;div class=&quot;layout&quot;&gt;</code>) font-family to a "zero width" font and font-size to zero.</p>
+            <p>You reset the font-family for the inline-blocks within your container to the default font-family you are using and the font-size to the base font-size you are using.</p>
+            
+            <pre>
+                <code>
+@import url('https://cdn.jsdelivr.net/font-zero-width/latest/zero-width.css');
+/* import zero width font - must be at op of CSS page */
+
+.layout {
+    font-family: 'zero-width'; /* set font-family to zero width */
+    font-size: 0; /* set font-size to 0 */
+}
+.one-quarter {
+
+    font-family: 'helvetica'; /* set font-family back to your default */
+    font-size: 1rem; /* set font-size to 1rem which is 1 * body font-size  */
+
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
+}
+                </code>
+            </pre>
+            
+            <p>Wala!</p>
+            
+            <div class="layout" style="font-family: 'zero-width'; font-size: 0;">
+                <div class="one-quarter" style="display: inline-block; width: 25%; vertical-align: top; background: lightblue; font-family: 'helvetica'; font-size: 1rem;">
+                    <h2>I'm 25% wide.</h2>
+                    <p>This is</p>
+                    <p>Some content</p>
+                    <p>For block one</p>
+                </div>
+                <div class="one-quarter" style="display: inline-block; width: 25%; vertical-align: top; background: lightgreen; font-family: 'helvetica'; font-size: 1rem;">
+                    <h2>I'm 25% wide.</h2>
+                    <p>This is</p>
+                    <p>Some content</p>
+                    <p>For block two</p>
+                    <p>Extra line</p>
+                </div>
+                <div class="one-quarter" style="display: inline-block; width: 25%; vertical-align: top; background: cornflowerblue; font-family: 'helvetica'; font-size: 1rem;">
+                    <h2>I'm 25% wide.</h2>
+                    <p>This is</p>
+                    <p>Some content three</p>
+                </div>
+                <div class="one-quarter" style="display: inline-block; width: 25%; vertical-align: top; background: aquamarine; font-family: 'helvetica'; font-size: 1rem;">
+                    <h2>I'm 25% wide.</h2>
+                    <p>This is content</p>
+                </div>
+            </div>
+            
+        </main>
+        <footer>
+        
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/fewd/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script src="/fewd/js/plugins.js"></script>
+        <script src="/fewd/js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+        -->
+    </body>
+</html>
