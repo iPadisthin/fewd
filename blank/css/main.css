@@ -1,0 +1,46 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+    margin: 0;
+    font-family: Georgia, sans-serif;
+}
+label {
+    display: none;
+}
+form {
+    background: darkgreen;
+    padding: 10px;
+}
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    font-size: 2em;
+}
+input[type="submit"] {
+    width: 25%;
+    padding: 10px;
+    background: green;
+    color: white;
+    font-size: 2em;
+    border: 0;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+    padding: 10px;
+    font-size: 2em;
+    background: #f1f1f1;
+    border-bottom: 1px solid #ccc;
+}
+li.complete {
+    text-decoration: line-through;
+    color: #ccc;
+}
