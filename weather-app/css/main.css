@@ -1,0 +1,41 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    
+}
+h1 {
+    font-weight: 100;
+}
+h2 {
+    margin-top: 0;
+}
+header {
+    background: black;
+    color: white;
+    padding: 10px 20px;
+}
+
+section {
+    position: relative;
+    padding: 30px 20px;
+}
+div.wi {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    font-size: 3em;
+}
+section p span {
+    font-size: 4em;
+}
